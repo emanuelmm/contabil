@@ -1,0 +1,3 @@
+data-source add --name=ContabDS --jndi-name=java:/jdbc/ContabDS \
+--driver-name=mysql-connector-java-5.1.34.jar_com.mysql.jdbc.Driver_5_1 \
+--connection-url=jdbc:mysql://127.0.0.1:3306/contab --user-name=contab --password=contab
