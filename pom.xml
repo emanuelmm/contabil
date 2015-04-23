@@ -7,14 +7,12 @@
 	<packaging>war</packaging>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
@@ -25,13 +23,15 @@
 			<artifactId>liquibase-cdi</artifactId>
 			<version>3.1.1</version>
 		</dependency>
-
+	    <dependency>  
+	        <groupId>org.primefaces</groupId>  
+	        <artifactId>primefaces</artifactId>  
+	        <version>5.2</version>  
+	    </dependency>  
 	</dependencies>
-
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
-
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
