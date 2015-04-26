@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Gestão financeira</title>
+
+    <h:outputStylesheet library="css" name="estilo.css" /> 
+</h:head>
+<h:body>
+
+    <header>
+<!--         <h:graphicImage library="css" name="logo.png" /> -->
+    </header>
+
+    <h:form>
+        <p:menubar style="margin-top: -20px; margin-bottom: 20px">
+            <p:submenu label="Cadastros">
+                <p:menuitem value="DRE" />
+                <p:menuitem value="Balanços" />
+            </p:submenu>
+            <p:submenu label="Minha conta">
+                <p:menuitem value="Sair" />
+            </p:submenu>
+        </p:menubar>
+        
+        <p:confirmDialog global="true">
+            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        </p:confirmDialog>
+    </h:form>
+
+    <div id="content">
+        <ui:insert name="content"></ui:insert>
+    </div>
+    
+    <footer>
+        
+    </footer>
+
+</h:body>
+</html>
