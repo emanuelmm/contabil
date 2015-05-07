@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<ui:composition template="/templates/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+    
+	<h1>Cadastro Empresa</h1>
+	<h:form id="novaEmpresa">
+		<h:panelGrid columns="10" >
+			<h:outputText value="CNPJ:" />
+			<p:inputText value="#{empresaBean.empresa.cnpj}" />
+			<h:outputText value="Razão Social" />
+			<p:inputText value="#{empresaBean.empresa.razaoSocial}" />
+			<h:outputText value="Nome Fantasia" />
+			<p:inputText value="#{empresaBean.empresa.nomeFantasia}" />
+			<p:commandButton value="Salvar" ajax="false" actionListener="#{empresaBean.cadastrar}"  />
+            <p:commandButton type="reset" value="Limpar" />
+		</h:panelGrid>
+	</h:form>
+	
+	<h:form>
+
+	<p:panel id="result">
+	
+	<p:dataTable value="#{empresaBean.empresas}" var="e">
+	    <p:column headerText="#" style="text-align: center;">
+	        #{e.id}
+	    </p:column>
+	    <p:column headerText="CNPJ" style="text-align: center;">
+            #{e.cnpj}
+        </p:column>
+        <p:column headerText="RAZÃO SOCIAL" style="text-align: center;">
+            #{e.razaoSocial}
+        </p:column>
+        <p:column headerText="NOME FANTASIA" style="text-align: center;">
+            #{e.nomeFantasia}
+        </p:column>
+	
+	</p:dataTable>
+	
+	
+	</p:panel>
+	
+    </h:form>	
+	
+
+    </ui:define>
+
+</ui:composition>

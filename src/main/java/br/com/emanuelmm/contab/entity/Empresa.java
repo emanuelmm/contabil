@@ -3,23 +3,29 @@ package br.com.emanuelmm.contab.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="empresa")
 public class Empresa {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String cnpj;
 	
+	@Column(name="nome_fantasia")
 	private String nomeFantasia;
 	
+	@Column(name="razao_social")
 	private String razaoSocial;
 	
 	@OneToMany(mappedBy="empresa", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
