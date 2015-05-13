@@ -22,4 +22,9 @@ public class EmpresaBusiness {
 	public List <Empresa> consultarEmpresas(){
 		return em.createQuery("from Empresa", Empresa.class).getResultList();
 	}
+
+	public void remover(Empresa empresa) {
+		Object referencia = this.em.getReference(Empresa.class, empresa.getId());
+		em.remove(referencia);	
+	}
 }

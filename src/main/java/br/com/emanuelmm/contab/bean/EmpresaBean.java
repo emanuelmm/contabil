@@ -34,8 +34,13 @@ public class EmpresaBean {
 		consultarTodos();
 	}
 	
+	public void remover() {
+		business.remover(empresa);
+		consultarTodos();
+	}
+	
 	public void consultarTodos() {		
-		business.consultarEmpresas();
+		empresas = business.consultarEmpresas();
 		
 	}
 

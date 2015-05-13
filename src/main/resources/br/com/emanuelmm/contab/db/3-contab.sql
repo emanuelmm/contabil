@@ -1,0 +1,23 @@
+create table balanco (
+    id int not null primary key auto_increment,
+    empresa_id int not null,
+    caixa_bancos decimal(13,3),
+    duplicatas_receber decimal(13,3),
+    estoques_total decimal(13,3),
+    realizavel_longo_prazo decimal(13,3),
+    ativo_nao_circulante decimal(13,3),
+    moveis_utensilios decimal(13,3),
+    veiculos decimal(13,3),
+    maquinas_equipamentos decimal(13,3),
+    depreciacao decimal(13,3),
+    fornecedores decimal(13,3),
+    bancos_curto_prazo decimal(13,3),
+    bancos_curto_longo_prazo decimal(13,3),
+    imposto_renda decimal(13, 3),
+    cssl decimal(13,3),
+    bancos_longo_prazo decimal(13,3),
+    capital_social decimal(13,3),
+    reservas decimal(13,3),
+    ano varchar(4) not null, 
+    constraint fk_balanco_empresa foreign key(empresa_id) references empresa(id)
+) ENGINE=InnoDB;

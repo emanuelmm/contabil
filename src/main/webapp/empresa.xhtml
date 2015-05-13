@@ -22,31 +22,31 @@
 		</h:panelGrid>
 	</h:form>
 	
-	<h:form>
-
-	<p:panel id="result">
-	
-	<p:dataTable value="#{empresaBean.empresas}" var="e">
-	    <p:column headerText="#" style="text-align: center;">
-	        #{e.id}
-	    </p:column>
-	    <p:column headerText="CNPJ" style="text-align: center;">
-            #{e.cnpj}
-        </p:column>
-        <p:column headerText="RAZÃO SOCIAL" style="text-align: center;">
-            #{e.razaoSocial}
-        </p:column>
-        <p:column headerText="NOME FANTASIA" style="text-align: center;">
-            #{e.nomeFantasia}
-        </p:column>
-	
-	</p:dataTable>
-	
-	
-	</p:panel>
-	
+	<h:form id="resultForm">
+		<p:panel id="result">
+			<p:dataTable value="#{empresaBean.empresas}" var="e">
+			    <p:column headerText="#" style="text-align: center;">
+			        #{e.id}
+			    </p:column>
+			    <p:column headerText="CNPJ" style="text-align: center;">
+		            #{e.cnpj}
+		        </p:column>
+		        <p:column headerText="RAZÃO SOCIAL" style="text-align: center;">
+		            #{e.razaoSocial}
+		        </p:column>
+		        <p:column headerText="NOME FANTASIA" style="text-align: center;">
+		            #{e.nomeFantasia}
+		        </p:column>
+		        <p:column style="text-align: center;">
+		             <p:commandButton action="#{empresaBean.remover}"
+		                 icon="ui-icon-trash" update="resultForm:result"> 
+		                 <f:setPropertyActionListener value="#{e}"
+		                     target="#{empresaBean.empresa}" />
+		             </p:commandButton>
+		         </p:column>
+		    </p:dataTable>
+		</p:panel>	
     </h:form>	
-	
 
     </ui:define>
 

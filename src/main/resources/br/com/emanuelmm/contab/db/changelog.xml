@@ -12,6 +12,10 @@
         <sqlFile path="br/com/emanuelmm/contab/db/2-contab.sql"
             stripComments="true" />
     </changeSet>
+    <changeSet id="102" author="emanuel">
+        <sqlFile path="br/com/emanuelmm/contab/db/3-contab.sql"
+            stripComments="true" />
+    </changeSet>
 
 </databaseChangeLog>
 
