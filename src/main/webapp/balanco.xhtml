@@ -1,17 +1,89 @@
 <!DOCTYPE html>
 <ui:composition template="/templates/template.xhtml"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
-    <ui:define name="content">
-    
-        <h1>Cadastro Balanco</h1>
-        <h:form>
-        </h:form>
-        
-    </ui:define>
+	<ui:define name="content">
+
+
+		<h1>Cadastro Empresa</h1>
+		<h:form id="novaEmpresa">
+			<h:panelGrid columns="10">
+				<h:outputText value="Empresa" />
+				<p:selectOneMenu></p:selectOneMenu>
+
+				<h:outputText value="Caixa Bancos:" />
+				<p:inputText value="#{balancoBean.balanco.caixaBancos}" />
+
+				<h:outputText value="Duplicatas Receber:" />
+				<p:inputText value="#{balancoBean.balanco.duplicatasReceber}" />
+
+				<h:outputText value="Estoques total:" />
+				<p:inputText value="#{balancoBean.balanco.estoquesTotal}" />
+
+				<h:outputText value="Realizavel a longo prazo:" />
+				<p:inputText value="#{balancoBean.balanco.realizavelLongoPrazo}" />
+
+				<h:outputText value="Ativo não circulante:" />
+				<p:inputText value="#{balancoBean.balanco.ativoNaoCirculante}" />
+
+				<h:outputText value="Moveis Utensilios" />
+				<p:inputText value="#{balancoBean.balanco.moveisUtensilios}" />
+
+				<h:outputText value="Veiculos" />
+				<p:inputText value="#{balancoBean.balanco.veiculos}" />
+
+				<h:outputText value="Maquinas Equipamentos" />
+				<p:inputText value="#{balancoBean.balanco.maquinasEquipamentos}" />
+
+				<h:outputText value="Depreciação:" />
+				<p:inputText value="#{balancoBean.balanco.depreciacao}" />
+
+				<h:outputText value="Fornecedores:" />
+				<p:inputText value="#{balancoBean.balanco.fornecedores}" />
+
+				<h:outputText value="Bancos curto prazo:" />
+				<p:inputText value="#{balancoBean.balanco.bancosCurtoPrazo}" />
+
+				<h:outputText value="Bancos curto e longo prazo:" />
+				<p:inputText value="#{balancoBean.balanco.bancosLongoPrazo}" />
+
+			</h:panelGrid>
+			<p:commandButton value="Salvar" ajax="false"
+				actionListener="#{empresaBean.cadastrar}" />
+			<p:commandButton type="reset" value="Limpar" />
+			
+			<br />
+			
+		</h:form>
+<br />
+		<h:form id="resultForm">
+			<p:panel id="result">
+				<p:dataTable value="#{balancoBean.balancos}" var="b">
+					<p:column headerText="#" style="text-align: center;">
+                    #{b.id}
+                </p:column>
+					<p:column headerText="EMPRESA" style="text-align: center;">
+                    #{b.empresa.razaoSocial}
+                </p:column>
+					<p:column headerText="ANO" style="text-align: center;">
+                    #{b.ano}
+                </p:column>
+
+					<p:column style="text-align: center;">
+						<p:commandButton action="#{balancoBean.remover}"
+							icon="ui-icon-trash" update="resultForm:result">
+							<f:setPropertyActionListener value="#{e}"
+								target="#{balancoBean.balanco}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+
+	</ui:define>
 
 </ui:composition>
