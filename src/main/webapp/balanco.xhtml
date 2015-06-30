@@ -7,13 +7,13 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="content">
-
-
-		<h1>Cadastro Empresa</h1>
+		<h1>Cadastro Empresa</h1> 
 		<h:form id="novaEmpresa">
 			<h:panelGrid columns="10">
 				<h:outputText value="Empresa" />
-				<p:selectOneMenu></p:selectOneMenu>
+				<p:selectOneMenu value="#{balancoBean.selectedEmpresa}" immediate="">
+				    <f:selectItems value="#{balancoBean.empresas}" var="e" itemLabel="#{e.nomeFantasia}" itemValue="#{e}" />
+				</p:selectOneMenu>
 
 				<h:outputText value="Caixa Bancos:" />
 				<p:inputText value="#{balancoBean.balanco.caixaBancos}" />
@@ -53,13 +53,13 @@
 
 			</h:panelGrid>
 			<p:commandButton value="Salvar" ajax="false"
-				actionListener="#{empresaBean.cadastrar}" />
+				actionListener="#{balancoBean.cadastrar}" />
 			<p:commandButton type="reset" value="Limpar" />
 			
 			<br />
 			
 		</h:form>
-<br />
+        <br />
 		<h:form id="resultForm">
 			<p:panel id="result">
 				<p:dataTable value="#{balancoBean.balancos}" var="b">

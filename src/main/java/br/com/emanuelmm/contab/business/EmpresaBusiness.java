@@ -10,7 +10,6 @@ import br.com.emanuelmm.contab.entity.Empresa;
 
 @Transactional
 public class EmpresaBusiness {
-
 	
 	@PersistenceContext
 	EntityManager em;

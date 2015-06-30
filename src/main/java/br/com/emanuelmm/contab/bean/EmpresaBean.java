@@ -24,13 +24,11 @@ public class EmpresaBean {
 	@PostConstruct
 	public void inicializar() {
 		empresa = new Empresa();
-		consultarTodos();
-		
+		consultarTodos();		
 	}
 	
 	public void cadastrar() {
 		business.salvar(empresa);
-
 		consultarTodos();
 	}
 	
@@ -40,8 +38,7 @@ public class EmpresaBean {
 	}
 	
 	public void consultarTodos() {		
-		empresas = business.consultarEmpresas();
-		
+		empresas = business.consultarEmpresas();		
 	}
 
 	public Empresa getEmpresa() {
@@ -59,9 +56,4 @@ public class EmpresaBean {
 	public void setEmpresas(List<Empresa> empresas) {
 		this.empresas = empresas;
 	}
-
-	
-	
-	
-	
 }
