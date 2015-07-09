@@ -8,11 +8,11 @@
 
 	<ui:define name="content">
 		<h1>Cadastro Empresa</h1> 
-		<h:form id="novaEmpresa">
+		<h:form id="novaEmpresa">z
 			<h:panelGrid columns="10">
 				<h:outputText value="Empresa" />
-				<p:selectOneMenu value="#{balancoBean.selectedEmpresa}" immediate="">
-				    <f:selectItems value="#{balancoBean.empresas}" var="e" itemLabel="#{e.nomeFantasia}" itemValue="#{e}" />
+				<p:selectOneMenu value="#{balancoBean.selectedEmpresaId}" >
+				    <f:selectItems value="#{balancoBean.empresas}" var="e" itemLabel="#{e.nomeFantasia}" itemValue="#{e.id}" />
 				</p:selectOneMenu>
 
 				<h:outputText value="Caixa Bancos:" />

@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 public class Balanco {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@ManyToOne
@@ -64,7 +65,7 @@ public class Balanco {
 	private BigDecimal capitalSocial;
 	private BigDecimal reservas;	
 	
-	private Date ano;
+	private String ano;
 
 	public Long getId() {
 		return id;
@@ -218,13 +219,15 @@ public class Balanco {
 		this.reservas = reservas;
 	}
 
-	public Date getAno() {
+	public String getAno() {
 		return ano;
 	}
 
-	public void setAno(Date ano) {
+	public void setAno(String ano) {
 		this.ano = ano;
 	}
+
+	
 	
 	
 }

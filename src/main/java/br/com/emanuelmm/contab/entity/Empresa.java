@@ -2,7 +2,6 @@ package br.com.emanuelmm.contab.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,7 +27,7 @@ public class Empresa {
 	@Column(name="razao_social")
 	private String razaoSocial;
 	
-	@OneToMany(mappedBy="empresa", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="empresa", fetch=FetchType.EAGER)
 	private List < Balanco > balancos;
 
 	public Long getId() {

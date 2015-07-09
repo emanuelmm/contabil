@@ -1,5 +1,6 @@
 package br.com.emanuelmm.contab.bean;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.emanuelmm.contab.business.BalancoBusiness;
+import br.com.emanuelmm.contab.business.EmpresaBusiness;
 import br.com.emanuelmm.contab.entity.Balanco;
 import br.com.emanuelmm.contab.entity.Empresa;
 
@@ -17,17 +19,20 @@ public class BalancoBean {
 	
 	@Inject
 	BalancoBusiness business;
+	
+	@Inject
+	EmpresaBusiness empresaBusiness;
 
 	private Balanco balanco;
 	
 	private List < Balanco > balancos;
 	private List < Empresa > empresas;
 	
-	private Empresa selectedEmpresa;
+	private long selectedEmpresaId;
 			
 	@PostConstruct
 	public void inicializar() {
-		selectedEmpresa = new Empresa();
+		
 		balanco = new Balanco();
 		empresas = business.consultarEmpresas();
 		consultarTodos();		
@@ -38,7 +43,8 @@ public class BalancoBean {
 	}
 			
 	public void cadastrar() {
-		balanco.setEmpresa(selectedEmpresa);
+		balanco.setEmpresa(empresaBusiness.buscarEmpresaPorId(selectedEmpresaId));
+		balanco.setAno("2015");
 		business.salvar(balanco);
 		consultarTodos();
 	}
@@ -79,13 +85,14 @@ public class BalancoBean {
 		this.empresas = empresas;
 	}
 
-	public Empresa getSelectedEmpresa() {
-		return selectedEmpresa;
+	public long getSelectedEmpresaId() {
+		return selectedEmpresaId;
 	}
 
-	public void setSelectedEmpresa(Empresa selectedEmpresa) {
-		this.selectedEmpresa = selectedEmpresa;
+	public void setSelectedEmpresaId(long selectedEmpresaId) {
+		this.selectedEmpresaId = selectedEmpresaId;
 	}
+
 
 	
 	
