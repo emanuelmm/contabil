@@ -43,7 +43,6 @@ public class BalancoBean {
 			
 	public void cadastrar() {
 		balanco.setEmpresa(empresaBusiness.buscarEmpresaPorId(selectedEmpresaId));
-		balanco.setAno("2015");
 		business.salvar(balanco);
 		consultarTodos();
 	}
