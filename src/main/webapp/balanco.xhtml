@@ -7,8 +7,8 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="content">
-		<h1>Cadastro Empresa</h1> 
-		<h:form id="novaEmpresa">z
+		<h1>Cadastro Balanços</h1> 
+		<h:form id="novaEmpresa">
 			<h:panelGrid columns="10">
 				<h:outputText value="Empresa" />
 				<p:selectOneMenu value="#{balancoBean.selectedEmpresaId}" >
@@ -65,13 +65,13 @@
 				<p:dataTable value="#{balancoBean.balancos}" var="b">
 					<p:column headerText="#" style="text-align: center;">
                     #{b.id}
-                </p:column>
+                    </p:column>
 					<p:column headerText="EMPRESA" style="text-align: center;">
                     #{b.empresa.razaoSocial}
-                </p:column>
+                    </p:column>
 					<p:column headerText="ANO" style="text-align: center;">
                     #{b.ano}
-                </p:column>
+                    </p:column>
 
 					<p:column style="text-align: center;">
 						<p:commandButton action="#{balancoBean.remover}"

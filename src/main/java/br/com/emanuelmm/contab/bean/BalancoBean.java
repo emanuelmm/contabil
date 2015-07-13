@@ -1,6 +1,5 @@
 package br.com.emanuelmm.contab.bean;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -38,8 +37,8 @@ public class BalancoBean {
 		consultarTodos();		
 	}
 	
-	public List <Balanco> consultarTodos() {
-		return business.consultarBalancos();
+	public void consultarTodos() {
+		balancos = business.consultarBalancos();
 	}
 			
 	public void cadastrar() {
@@ -59,6 +58,14 @@ public class BalancoBean {
 
 	public void setBusiness(BalancoBusiness business) {
 		this.business = business;
+	}
+
+	public EmpresaBusiness getEmpresaBusiness() {
+		return empresaBusiness;
+	}
+
+	public void setEmpresaBusiness(EmpresaBusiness empresaBusiness) {
+		this.empresaBusiness = empresaBusiness;
 	}
 
 	public Balanco getBalanco() {
@@ -93,6 +100,7 @@ public class BalancoBean {
 		this.selectedEmpresaId = selectedEmpresaId;
 	}
 
+	
 
 	
 	
